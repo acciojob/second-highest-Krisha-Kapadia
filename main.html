@@ -9,8 +9,22 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
+			// Convert elements from strings to numbers (because prompt returns strings)
+			arr = arr.map(Number);
 			
+			// If length less than 2, no second highest
+			if (arr.length < 2) return -Infinity;
+
+			// Use a Set to remove duplicates
+			let unique = [...new Set(arr)];
+
+			// If less than 2 unique elements, return -Infinity
+			if (unique.length < 2) return -Infinity;
+
+			// Sort descending and return second element
+			unique.sort((a, b) => b - a);
+
+			return unique[1];
 		}
 
 		function Main() {
@@ -25,7 +39,7 @@
 	</script>
 
     <script type="text/javascript" src="./script.js">
-</script>
+    </script>
 
 </body>
 
